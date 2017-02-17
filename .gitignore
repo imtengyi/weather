@@ -87,3 +87,10 @@ ENV/
 
 # Rope project settings
 .ropeproject
+.DS_Store
+
+
+#custom file
+*.xml
+*.iml
+.idea

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWorld</title>
+</head>
+<body>
+<h1>HelloWorld~</h1>
+<div class="link">
+    {% if userinfo %}
+        <table border="2px" cellpadding="20" cellspacing="0px" bordercolor="#6699ff">
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>手机号</th>
+                <th>城市</th>
+                <th>发送短信时间</th>
+            </tr>
+            {% for user in userinfo %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.city_name }}</td>
+                    <td>{{ user.send_sms_time }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No user </p>
+    {% endif %}
+</div>
+<div>
+    <form action="/user/add/" method="post">
+        {% csrf_token %}
+        <label>请输入姓名</label>
+        <input type="text" name="name"/><br>
+        <label>请输入手机号</label>
+        <input type="text" name="phone"/><br>
+        <label>请输入城市</label>
+        <input type="text" name="city_name"/><br>
+        <label>请输入发送短信时间</label>
+        <input type="text" name="send_sms_time"><br>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
